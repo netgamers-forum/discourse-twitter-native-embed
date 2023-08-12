@@ -16,19 +16,21 @@ export default {
             
             api.decorateCookedElement((el, helper) => {
                 let hasQuote = false;
-                for (const aa of el.querySelectorAll(`a.onebox[href^="https://twitter.com/"][href*=status]`)) {
-                    const twitter_blockquoue = document.createElement("blockquote");
-                    twitter_blockquoue.setAttribute("style", "display: none");
-                    const aaa = document.createElement("a");
-                    aaa.setAttribute("href", aa.href);
-                    aaa.setAttribute("rel", "no-follow");
-                    twitter_blockquoue.appendChild(aaa);
-                    aa.appendChild(twitter_blockquoue);
-                }
-                for (const quote of el.getElementsByTagName("blockquote")) {
-                    if (quote.querySelector(`blockquote a[href^="https://twitter.com/"]`)) {
-                        quote.classList += "twitter-tweet";
-                        hasQuote = true;
+                for (const the_musks_fxxking_url of ["twitter.com", "x.com"]) {
+                    for (const aa of el.querySelectorAll(`a.onebox[href^="https://${the_musks_fxxking_url}/"][href*=status]`)) {
+                        const twitter_blockquoue = document.createElement("blockquote");
+                        twitter_blockquoue.setAttribute("style", "display: none");
+                        const aaa = document.createElement("a");
+                        aaa.setAttribute("href", aa.href);
+                        aaa.setAttribute("rel", "no-follow");
+                        twitter_blockquoue.appendChild(aaa);
+                        aa.appendChild(twitter_blockquoue);
+                    }
+                    for (const quote of el.getElementsByTagName("blockquote")) {
+                        if (quote.querySelector(`blockquote a[href^="https://${the_musks_fxxking_url}/"]`)) {
+                            quote.classList += "twitter-tweet";
+                            hasQuote = true;
+                        }
                     }
                 }
                 if (hasQuote) getTwitterScript();
