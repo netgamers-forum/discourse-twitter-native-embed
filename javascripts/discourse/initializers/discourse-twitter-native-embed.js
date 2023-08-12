@@ -20,17 +20,18 @@ export default {
                     for (const aa of el.querySelectorAll(`a.onebox[href^="https://${the_musks_fxxking_url}/"][href*=status]`)) {
                         const twitter_blockquoue = document.createElement("blockquote");
                         twitter_blockquoue.setAttribute("style", "display: none");
+                        twitter_blockquoue.classList += "twitter-tweet";
                         const aaa = document.createElement("a");
                         aaa.setAttribute("href", aa.href.replaceAll("https://x.com", "https://twitter.com"));
                         aaa.setAttribute("rel", "no-follow");
                         twitter_blockquoue.appendChild(aaa);
                         aa.appendChild(twitter_blockquoue);
                     }
-                    for (const quote of el.getElementsByTagName("blockquote")) {
-                        if (quote.querySelector(`blockquote a[href^="https://${the_musks_fxxking_url}/"]`)) {
-                            quote.classList += "twitter-tweet";
-                            hasQuote = true;
-                        }
+                }
+                for (const quote of el.getElementsByTagName("blockquote")) {
+                    if (quote.querySelector(`blockquote a[href^="https://twitter.com/"]`)) {
+                        quote.classList += "twitter-tweet";
+                        hasQuote = true;
                     }
                 }
                 if (hasQuote) getTwitterScript();
