@@ -21,7 +21,7 @@ export default {
                         const twitter_blockquoue = document.createElement("blockquote");
                         twitter_blockquoue.setAttribute("style", "display: none");
                         const aaa = document.createElement("a");
-                        aaa.setAttribute("href", aa.href);
+                        aaa.setAttribute("href", aa.href.replaceAll("https://x.com", "https://twitter.com"));
                         aaa.setAttribute("rel", "no-follow");
                         twitter_blockquoue.appendChild(aaa);
                         aa.appendChild(twitter_blockquoue);
