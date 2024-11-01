@@ -1,19 +1,20 @@
-import { withPluginApi } from "discourse/lib/plugin-api";
+import {
+    withPluginApi
+} from "discourse/lib/plugin-api";
 
 
 export default {
-    name: "discourse-twitter-native-embed",
+    name: "discourse-twitter-native-embed-xcancel",
     initialize() {
         withPluginApi("1.0.0", api => {
-            
+
             function getTwitterScript() {
-                var scriptnode = document.createElement('script'); 
-                scriptnode.setAttribute("async", "")
+                var scriptnode = document.createElement('script');
+                scriptnode.setAttribute("async", "");
                 scriptnode.setAttribute("src", "https://platform.twitter.com/widgets.js");
                 scriptnode.setAttribute("charset", "utf-8");
                 document.head.appendChild(scriptnode);
             }
-            
             api.decorateCookedElement((el, helper) => {
                 let hasQuote = false;
                 for (const the_musks_fxxking_url of ["twitter.com", "x.com"]) {
@@ -26,6 +27,11 @@ export default {
                         aaa.setAttribute("rel", "no-follow");
                         twitter_blockquoue.appendChild(aaa);
                         aa.appendChild(twitter_blockquoue);
+                        const xcancel_link = document.createElement("a")
+                        xcancel_link.setAttribute("href", aa.href.replaceAll(/https:\/\/.+\.com/gi, "https://xcancel.com"))
+                        xcancel_link.text = "Apri in Xcancel"
+                        xcancel_link.setAttribute("rel", "no-follow")
+                        aa.appendChild(xcancel_link, twitter_blockquoue)
                     }
                 }
                 for (const quote of el.getElementsByTagName("blockquote")) {
@@ -36,12 +42,10 @@ export default {
                 }
                 if (hasQuote) getTwitterScript();
             }, {
-                id: "discourse-twitter-native-embed",
+                id: "discourse-twitter-native-embed-xcancel",
                 afterAdopt: true,
-                onlyStream: true,
+                onlyStream: true
             });
-
         });
     }
 };
-
