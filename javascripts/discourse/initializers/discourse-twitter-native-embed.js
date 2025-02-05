@@ -33,7 +33,7 @@ export default {
                         xcancel_link.setAttribute("href", aa.href.replaceAll(/^https:\/\/.+\.com/gi, "https://xcancel.com"));
                         xcancel_link.text = aa.text.replaceAll(/^https:\/\/.+\.com/gi, "https://xcancel.com")
                         xcancel_link.setAttribute("rel", "no-follow");
-                        aa.appendChild(xcancel_link);
+//                        aa.appendChild(xcancel_link);
                     }
                 }
 //                for (const quote of el.getElementsByTagName("blockquote")) {
