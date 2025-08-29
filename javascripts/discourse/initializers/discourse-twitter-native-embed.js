@@ -19,7 +19,7 @@ export default {
             api.decorateCookedElement((el, helper) => {
 //                let hasQuote = false;
                 for (const the_musks_fxxking_url of ["twitter.com", "x.com"]) {
-                    for (const aa of el.querySelectorAll(`a.onebox[href^="https://${the_musks_fxxking_url}/"][href*=status]`)) {
+                    for (const aa of el.querySelectorAll(`aside.onebox[href^="https://${the_musks_fxxking_url}/"][href*=status]`)) {
 //                        const twitter_blockquoue = document.createElement("blockquote");
 //                        twitter_blockquoue.setAttribute("style", "display: none");
 //                        twitter_blockquoue.classList?.add("twitter-tweet");
