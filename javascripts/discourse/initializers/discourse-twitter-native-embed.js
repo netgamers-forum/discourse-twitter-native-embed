@@ -19,21 +19,11 @@ export default {
             api.decorateCookedElement((el, helper) => {
 //                let hasQuote = false;
                 for (const the_musks_fxxking_url of ["twitter.com", "x.com"]) {
-                    for (const aa of el.querySelectorAll(`aside.onebox[href^="https://${the_musks_fxxking_url}/"][href*=status]`)) {
-//                        const twitter_blockquoue = document.createElement("blockquote");
-//                        twitter_blockquoue.setAttribute("style", "display: none");
-//                        twitter_blockquoue.classList?.add("twitter-tweet");
-//                        const aaa = document.createElement("a");
-//                        aaa.setAttribute("href", aa.href.replaceAll("https://x.com", "https://twitter.com"));
-//                        aaa.setAttribute("rel", "no-follow");
-//                        twitter_blockquoue.appendChild(aaa);
-//                        aa.appendChild(twitter_blockquoue);
-//                        const xcancel_link = document.createElement("a");
+                    for (const aa of el.querySelectorAll(`aside.onebox[data-onebox-src^="https://${the_musks_fxxking_url}/"][data-onebox-src*=status]`)) {
                         const xcancel_link = aa;
-                        xcancel_link.setAttribute("href", aa.href.replaceAll(/^https:\/\/.+\.com/gi, "https://xcancel.com"));
+                        xcancel_link.setAttribute("href", aa.getAttribute("data-onebox-src").replaceAll(/^https:\/\/.+\.com/gi, "https://xcancel.com"));
                         xcancel_link.text = aa.text.replaceAll(/^https:\/\/.+\.com/gi, "https://xcancel.com")
                         xcancel_link.setAttribute("rel", "no-follow");
-//                       aa.appendChild(xcancel_link);
                     }
                 }
 //                for (const quote of el.getElementsByTagName("blockquote")) {
