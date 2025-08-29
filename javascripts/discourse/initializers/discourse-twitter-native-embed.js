@@ -25,6 +25,7 @@ export default {
                         xcancel_link.setAttribute("data-onebox-src", aa.getAttribute("data-onebox-src").replaceAll(/^https:\/\/.+\.com/gi, "https://xcancel.com"));
                         xcancel_link.textContent = aa.textContent.replaceAll(/^https:\/\/.+\.com/gi, "https://xcancel.com")
                         xcancel_link.setAttribute("rel", "no-follow");
+                        console.log(aa.getAttribute("data-onebox-src"));
                     }
                 }
 //                for (const quote of el.getElementsByTagName("blockquote")) {
