@@ -21,7 +21,7 @@ export default {
                 for (const the_musks_fxxking_url of ["twitter.com", "x.com"]) {
                     for (const aa of el.querySelectorAll(`aside.onebox[data-onebox-src^="https://${the_musks_fxxking_url}/"][data-onebox-src*=status]`)) {
                         const xcancel_link = aa;
-                        xcancel_link.setAttribute("href", aa.getAttribute("data-onebox-src").replaceAll(/^https:\/\/.+\.com/gi, "https://xcancel.com"));
+                        xcancel_link.setAttribute("data-onebox-src", aa.getAttribute("data-onebox-src").replaceAll(/^https:\/\/.+\.com/gi, "https://xcancel.com"));
                         xcancel_link.textContent = aa.textContent.replaceAll(/^https:\/\/.+\.com/gi, "https://xcancel.com")
                         xcancel_link.setAttribute("rel", "no-follow");
                     }
